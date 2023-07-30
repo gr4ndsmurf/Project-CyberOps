@@ -47,7 +47,7 @@ public abstract class Movement : MonoBehaviour
     }
     protected bool IsGrounded()
     {
-        float extraHeightText = 0.10f;
+        float extraHeightText = 0.02f;
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size - new Vector3(0.1f, 0f, 0f), 0f, Vector2.down, extraHeightText, platformLayerMask);
         Color rayColor;
         if (raycastHit.collider != null)

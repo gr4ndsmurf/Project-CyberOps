@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
+    private bool canJump;
     private void Update()
     {
         if (IsGrounded())
         {
-            Jump();
+            canJump = true;
         }
+        else
+        {
+            canJump = false;
+        }
+        Jump();
     }
     private void FixedUpdate()
     {
@@ -21,16 +27,8 @@ public class PlayerMovement : Movement
     {
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+        anim.SetFloat("Speed", Mathf.Abs(moveInput));
         Running();
-
-        if (rb.velocity.x < 0 || rb.velocity.x > 0)
-        {
-            anim.SetBool("isWalking", true);
-        }
-        else
-        {
-            anim.SetBool("isWalking", false);
-        }
     }
     public void Running()
     {
@@ -48,10 +46,17 @@ public class PlayerMovement : Movement
 
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!canJump)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             anim.SetBool("isJumping", true);
+        }
+        else if (canJump)
+        {
+            anim.SetBool("isJumping", false);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
     }
 
