@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : Movement
 {
     private bool canJump;
+
     private void Update()
     {
         if (IsGrounded())
@@ -40,7 +41,12 @@ public class PlayerMovement : Movement
             {
                 speed = runningSpeed;
                 anim.SetBool("isRunning", true);
+                if (canJump)
+                {
+                    AudioManager.Instance.Play("RunningSound");
+                }
             }
+            
         }
     }
 
@@ -55,10 +61,10 @@ public class PlayerMovement : Movement
             anim.SetBool("isJumping", false);
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                AudioManager.Instance.Play("JumpingSound");
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
     }
-
     
 }
