@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : Movement
 {
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
-    }
-
     private void Update()
     {
-        Jump();
+        if (IsGrounded())
+        {
+            Jump();
+        }
     }
     private void FixedUpdate()
     {
@@ -51,7 +48,6 @@ public class PlayerMovement : Movement
 
     public void Jump()
     {
-        anim.SetBool("isJumping", false);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -59,4 +55,5 @@ public class PlayerMovement : Movement
         }
     }
 
+    
 }
