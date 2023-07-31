@@ -11,7 +11,7 @@ public abstract class Movement : MonoBehaviour
     [SerializeField] protected float jumpForce;
     protected BoxCollider2D boxCollider2d;
     protected Rigidbody2D rb;
-    protected Animator anim;
+   // protected Animator anim;
     public bool isDestroyed;
 
     [SerializeField] protected LayerMask platformLayerMask;
@@ -19,7 +19,7 @@ public abstract class Movement : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
+        //anim = GetComponentInChildren<Animator>();
         boxCollider2d = GetComponent<BoxCollider2D>();
     }
     public abstract void Move();
@@ -32,7 +32,7 @@ public abstract class Movement : MonoBehaviour
             DestroyCharacter();
         }
     }
-    protected void Flip()
+    /*protected void Flip()
     {
         Vector3 characterScale = transform.localScale;
         if (rb.velocity.x < 0)
@@ -44,7 +44,7 @@ public abstract class Movement : MonoBehaviour
             characterScale.x = 1;
         }
         transform.localScale = characterScale;
-    }
+    }*/
     protected bool IsGrounded()
     {
         float extraHeightText = 0.02f;
