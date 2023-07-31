@@ -15,8 +15,11 @@ public class Weapon : MonoBehaviour
     private Queue<GameObject> bulletPool;
 
     [SerializeField] private string GunSoundName;
+    [SerializeField] private string GunMuzzleFlashName;
 
     private bool shootingDelayed;
+
+    [SerializeField] private Animator muzzleFlash;
     private void Start()
     {
         bulletPool = new Queue<GameObject>();
@@ -45,6 +48,8 @@ public class Weapon : MonoBehaviour
                 Vector3 mousePosition = Input.mousePosition;
                 Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
                 Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
+
+                muzzleFlash.Play(GunMuzzleFlashName);
 
                 GameObject bullet = GetBulletFromPool();
 

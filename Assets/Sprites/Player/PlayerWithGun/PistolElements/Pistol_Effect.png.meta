@@ -157,9 +157,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 20
-        width: 3
-        height: 8
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,13 +174,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol_Effect_1
+      name: Pistol_Effect_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 17
-        width: 41
-        height: 12
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,13 +195,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol_Effect_2
+      name: Pistol_Effect_3
       rect:
         serializedVersion: 2
-        x: 90
-        y: 17
-        width: 72
-        height: 12
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,13 +216,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol_Effect_3
+      name: Pistol_Effect_4
       rect:
         serializedVersion: 2
-        x: 163
-        y: 17
-        width: 28
-        height: 12
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,13 +237,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pistol_Effect_4
+      name: Pistol_Effect_1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 17
-        width: 70
-        height: 12
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -251,8 +251,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ae30f35da5325448966bc7dddf4ef3b
-      internalID: -737210267
+      spriteID: 7d95c3629374e7a45b389acf5738296b
+      internalID: -949258261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pistol_Effect_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22a1566df2940ac48be2367d81f5339c
+      internalID: -1366121203
       vertices: []
       indices: 
       edges: []
@@ -273,6 +294,7 @@ TextureImporter:
       Pistol_Effect_2: -727814551
       Pistol_Effect_3: 449313355
       Pistol_Effect_4: 1389190257
+      Pistol_Effect_5: -1366121203
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
