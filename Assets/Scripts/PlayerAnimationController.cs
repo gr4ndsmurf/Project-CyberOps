@@ -8,11 +8,15 @@ public class PlayerAnimationController : MonoBehaviour
 
     public PlayerMovement pm;
     public Rigidbody2D rb;
+
+    private void Update()
+    {
+        Jump();
+    }
     private void FixedUpdate()
     {
         Walk();
         Run();
-        Jump();
         Flip();
     }
 

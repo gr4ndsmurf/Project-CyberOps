@@ -1123,7 +1123,7 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: 109c09a5d4ae661418a34b3c1756615d, type: 3}
     name: musicPlaylist
-    volume: 0.3
+    volume: 0
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
