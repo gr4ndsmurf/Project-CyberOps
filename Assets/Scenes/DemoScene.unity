@@ -446,6 +446,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -539,6 +540,21 @@ MonoBehaviour:
   m_CropFrameX: 0
   m_CropFrameY: 0
   m_StretchFill: 0
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f24292657e95bd46931b58162c97a62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1540892031}
+  offset: {x: 0, y: 0.04, z: -1}
+  damping: 0.05
 --- !u!1 &700256931
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,12 +1059,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armPoint: {fileID: 1880352755}
+  POOL_SIZE: 25
   bulletPrefab: {fileID: 3842002347173610723, guid: 5c2c1729060408a4a8f3faf1371dfd8d, type: 3}
   firePointTransform: {fileID: 1766590544}
   bulletSpeed: 100
   GunSoundName: RifleSound
   GunMuzzleFlashName: Rifle_MuzzleFlash
   muzzleFlash: {fileID: 1171231139}
+  maxAmmo: 25
+  currentAmmo: 0
+  reloadTime: 1
 --- !u!95 &1309807277
 Animator:
   serializedVersion: 5
@@ -1327,12 +1347,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armPoint: {fileID: 488137389}
+  POOL_SIZE: 12
   bulletPrefab: {fileID: 8815176045954032578, guid: 787ed6e7375fbca4aba8a22b62bc3530, type: 3}
   firePointTransform: {fileID: 505537423}
   bulletSpeed: 75
   GunSoundName: PistolSound
   GunMuzzleFlashName: Pistol_MuzzleFlash
   muzzleFlash: {fileID: 975925960}
+  maxAmmo: 0
+  currentAmmo: 0
+  reloadTime: 1
 --- !u!1 &1510343271
 GameObject:
   m_ObjectHideFlags: 0

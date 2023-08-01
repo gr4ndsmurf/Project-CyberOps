@@ -5,21 +5,23 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private GameObject armPoint;
-
-    private const int POOL_SIZE = 10;
-
+    [SerializeField] private int POOL_SIZE = 10;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePointTransform;
     [SerializeField] private float bulletSpeed;
-
     private Queue<GameObject> bulletPool;
 
     [SerializeField] private string GunSoundName;
     [SerializeField] private string GunMuzzleFlashName;
+    [SerializeField] private Animator muzzleFlash;
 
     private bool shootingDelayed;
 
-    [SerializeField] private Animator muzzleFlash;
+    [SerializeField] private int maxAmmo;
+    [SerializeField] private int currentAmmo;
+    [SerializeField] float reloadTime = 1f;
+    private bool isReloading = false;
+
     private void Start()
     {
         bulletPool = new Queue<GameObject>();
@@ -30,11 +32,41 @@ public class Weapon : MonoBehaviour
             bullet.SetActive(false);
             bulletPool.Enqueue(bullet);
         }
+
+        currentAmmo = maxAmmo;
     }
     void Update()
     {
         WeaponAiming();
+
+        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
+        {
+            StartCoroutine(Reload());
+        }
+
+        if (isReloading)
+        {
+            return;
+        }
+
+        if (currentAmmo <= 0)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+
         WeaponShooting();
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true;
+        Debug.Log("Reloading...");
+
+        yield return new WaitForSeconds(reloadTime);
+
+        currentAmmo = maxAmmo;
+        isReloading = false;
     }
 
     private void WeaponShooting()
@@ -49,8 +81,6 @@ public class Weapon : MonoBehaviour
                 Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
                 Vector3 shootDirection = (mouseWorldPosition - transform.position).normalized;
 
-                muzzleFlash.Play(GunMuzzleFlashName);
-
                 GameObject bullet = GetBulletFromPool();
 
                 if (bullet != null)
@@ -59,6 +89,9 @@ public class Weapon : MonoBehaviour
                     bullet.transform.rotation = firePointTransform.rotation;
                     bullet.SetActive(true);
 
+                    currentAmmo--;
+
+                    muzzleFlash.Play(GunMuzzleFlashName);
                     AudioManager.Instance.Play(GunSoundName);
 
                     Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
