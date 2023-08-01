@@ -5,6 +5,9 @@ using EZCameraShake;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Gun Object From WeaponHolder")]
+    [SerializeField] private GameObject gun;
+
     [Header("Bullet Object Pooling")]
     [SerializeField] private GameObject armPoint;
     [SerializeField] private int POOL_SIZE = 10;
@@ -46,27 +49,32 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        currentAmmoBox = Mathf.Clamp(currentAmmoBox, 0, maxAmmoBox);
-
-        WeaponAiming();
-
-        if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
+        if (gun.activeInHierarchy)
         {
-            StartCoroutine(Reload());
+            currentAmmoBox = Mathf.Clamp(currentAmmoBox, 0, maxAmmoBox);
+
+            WeaponAiming();
+
+            if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
+            {
+                StartCoroutine(Reload());
+            }
+
+            if (isReloading)
+            {
+                return;
+            }
+
+            if (currentAmmo <= 0)
+            {
+                StartCoroutine(Reload());
+                return;
+            }
+
+            WeaponShooting();
         }
 
-        if (isReloading)
-        {
-            return;
-        }
-
-        if (currentAmmo <= 0)
-        {
-            StartCoroutine(Reload());
-            return;
-        }
-
-        WeaponShooting();
+        
     }
 
     IEnumerator Reload()
@@ -167,6 +175,7 @@ public class Weapon : MonoBehaviour
             armPointLocalScale.x = -1f;
             armPointLocalScale.y = -1f;
             transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
+            gun.transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
         }
         else
         {
@@ -174,8 +183,10 @@ public class Weapon : MonoBehaviour
             armPointLocalScale.x = +1f;
             armPointLocalScale.y = +1f;
             transform.localPosition = new Vector3(0f, transform.localPosition.y, transform.localPosition.z);
+            gun.transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
         }
         transform.localScale = aimLocalScale;
         armPoint.transform.localScale = armPointLocalScale;
+        gun.transform.localScale = aimLocalScale;
     }
 }
