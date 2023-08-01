@@ -6,6 +6,9 @@ public class WeaponSwitching : MonoBehaviour
 
     private KeyCode[] Keycodes = {KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3, KeyCode.Alpha4, KeyCode.Alpha5, KeyCode.Alpha6, KeyCode.Alpha7, KeyCode.Alpha8,
     KeyCode.Alpha9, KeyCode.Alpha0};
+
+    [SerializeField] private Weapon pistolWP;
+    [SerializeField] private Weapon rifleWp;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,40 +20,43 @@ public class WeaponSwitching : MonoBehaviour
     {
         int previousSelectedWeapon = selectedWeapon;
 
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (!pistolWP.isReloading && !rifleWp.isReloading)
         {
-            if (selectedWeapon >= transform.childCount -1)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
             {
-                selectedWeapon = 0;
+                if (selectedWeapon >= transform.childCount - 1)
+                {
+                    selectedWeapon = 0;
+                }
+                else
+                {
+                    selectedWeapon++;
+                }
             }
-            else
+            if (Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                selectedWeapon++;
+                if (selectedWeapon <= 0)
+                {
+                    selectedWeapon = transform.childCount - 1;
+                }
+                else
+                {
+                    selectedWeapon--;
+                }
             }
-        }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            if (selectedWeapon <= 0)
-            {
-                selectedWeapon = transform.childCount - 1;
-            }
-            else
-            {
-                selectedWeapon--;
-            }
-        }
 
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            if (Input.GetKeyDown(Keycodes[i]))
+            for (int i = 0; i < transform.childCount; i++)
             {
-                selectedWeapon = i;
+                if (Input.GetKeyDown(Keycodes[i]))
+                {
+                    selectedWeapon = i;
+                }
             }
-        }
 
-        if (previousSelectedWeapon != selectedWeapon)
-        {
-            SelectWeapon();
+            if (previousSelectedWeapon != selectedWeapon)
+            {
+                SelectWeapon();
+            }
         }
     }
 

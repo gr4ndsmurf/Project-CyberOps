@@ -26,9 +26,9 @@ public class Weapon : MonoBehaviour
 
     [Header("Ammo System")]
     [SerializeField] private int maxAmmo;
-    [SerializeField] private int currentAmmo;
+    public int currentAmmo;
     [SerializeField] private float reloadTime = 1f;
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     [Header("Ammo Box")]
     public int currentAmmoBox = 0;
@@ -122,6 +122,7 @@ public class Weapon : MonoBehaviour
                     currentAmmo--;
 
                     muzzleFlash.Play(GunMuzzleFlashName);
+                    muzzleFlash.keepAnimatorStateOnDisable = true;
                     AudioManager.Instance.Play(GunSoundName);
                     CameraShaker.Instance.ShakeOnce(1f, 4f, .1f, .5f);
 
@@ -183,7 +184,7 @@ public class Weapon : MonoBehaviour
             armPointLocalScale.x = +1f;
             armPointLocalScale.y = +1f;
             transform.localPosition = new Vector3(0f, transform.localPosition.y, transform.localPosition.z);
-            gun.transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
+            gun.transform.localPosition = new Vector3(0f, transform.localPosition.y, transform.localPosition.z);
         }
         transform.localScale = aimLocalScale;
         armPoint.transform.localScale = armPointLocalScale;
