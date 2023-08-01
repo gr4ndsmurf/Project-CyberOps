@@ -76,6 +76,8 @@ public class Weapon : MonoBehaviour
             isReloading = true;
             Debug.Log("Reloading...");
 
+            AudioManager.Instance.Play("ReloadSound");
+
             currentAmmoBox--;
 
             yield return new WaitForSeconds(reloadTime);

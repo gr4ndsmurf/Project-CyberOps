@@ -1054,7 +1054,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.26, y: 0.14}
+  m_Size: {x: 0.48, y: 0.08}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -1117,7 +1117,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1171231139}
   maxAmmo: 25
   currentAmmo: 0
-  reloadTime: 1
+  reloadTime: 3
   currentAmmoBox: 1
   maxAmmoBox: 10
 --- !u!95 &1309807277
@@ -1407,8 +1407,8 @@ MonoBehaviour:
   muzzleFlash: {fileID: 975925960}
   maxAmmo: 12
   currentAmmo: 0
-  reloadTime: 1
-  currentAmmoBox: 0
+  reloadTime: 3
+  currentAmmoBox: 1
   maxAmmoBox: 5
 --- !u!1 &1510343271
 GameObject:
@@ -1428,7 +1428,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1510343272
 Animator:
   serializedVersion: 5
@@ -1931,6 +1931,18 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: d356dcc4df2f180418a83d5b523d97e4, type: 3}
+    name: ReloadSound
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 76499ff5d8595034a82bde01ff2824e6, type: 3}
+    name: HolsterSound
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
 --- !u!4 &1854092497
 Transform:
   m_ObjectHideFlags: 0
@@ -1995,7 +2007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2054289147
 Transform:
   m_ObjectHideFlags: 0
