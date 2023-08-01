@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour
                     AudioManager.Instance.Play(GunSoundName);
 
                     Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-                    bulletRigidbody.velocity = shootDirection * bulletSpeed;
+                    bulletRigidbody.velocity = new Vector2(shootDirection.x,shootDirection.y).normalized * bulletSpeed;
 
                     StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
                 }
