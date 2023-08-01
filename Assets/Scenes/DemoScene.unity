@@ -1069,6 +1069,8 @@ MonoBehaviour:
   maxAmmo: 25
   currentAmmo: 0
   reloadTime: 1
+  currentAmmoBox: 1
+  maxAmmoBox: 10
 --- !u!95 &1309807277
 Animator:
   serializedVersion: 5
@@ -1357,6 +1359,8 @@ MonoBehaviour:
   maxAmmo: 12
   currentAmmo: 0
   reloadTime: 1
+  currentAmmoBox: 0
+  maxAmmoBox: 5
 --- !u!1 &1510343271
 GameObject:
   m_ObjectHideFlags: 0

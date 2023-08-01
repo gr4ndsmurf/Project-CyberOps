@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [Header("Bullet Object Pooling")]
     [SerializeField] private GameObject armPoint;
     [SerializeField] private int POOL_SIZE = 10;
     [SerializeField] private GameObject bulletPrefab;
@@ -11,16 +12,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] private float bulletSpeed;
     private Queue<GameObject> bulletPool;
 
+    [Header("Gun Effects")]
     [SerializeField] private string GunSoundName;
     [SerializeField] private string GunMuzzleFlashName;
     [SerializeField] private Animator muzzleFlash;
 
+    [Header("Auto Fire")]
     private bool shootingDelayed;
 
+    [Header("Ammo System")]
     [SerializeField] private int maxAmmo;
     [SerializeField] private int currentAmmo;
-    [SerializeField] float reloadTime = 1f;
+    [SerializeField] private float reloadTime = 1f;
     private bool isReloading = false;
+
+    [Header("Ammo Box")]
+    public int currentAmmoBox = 0;
+    public int maxAmmoBox;
 
     private void Start()
     {
@@ -37,6 +45,8 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
+        currentAmmoBox = Mathf.Clamp(currentAmmoBox, 0, maxAmmoBox);
+
         WeaponAiming();
 
         if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
@@ -60,13 +70,22 @@ public class Weapon : MonoBehaviour
 
     IEnumerator Reload()
     {
-        isReloading = true;
-        Debug.Log("Reloading...");
+        if (currentAmmoBox > 0)
+        {
+            isReloading = true;
+            Debug.Log("Reloading...");
 
-        yield return new WaitForSeconds(reloadTime);
+            currentAmmoBox--;
 
-        currentAmmo = maxAmmo;
-        isReloading = false;
+            yield return new WaitForSeconds(reloadTime);
+
+            currentAmmo = maxAmmo;
+            isReloading = false;
+        }
+        else
+        {
+            Debug.Log("not enough ammo boxes");
+        }
     }
 
     private void WeaponShooting()
