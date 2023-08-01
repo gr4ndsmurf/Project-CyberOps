@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EZCameraShake;
 
 public class Weapon : MonoBehaviour
 {
@@ -112,6 +113,7 @@ public class Weapon : MonoBehaviour
 
                     muzzleFlash.Play(GunMuzzleFlashName);
                     AudioManager.Instance.Play(GunSoundName);
+                    CameraShaker.Instance.ShakeOnce(1f, 4f, .1f, .5f);
 
                     Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
                     bulletRigidbody.velocity = new Vector2(shootDirection.x,shootDirection.y).normalized * bulletSpeed;
