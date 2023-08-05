@@ -20,6 +20,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private string GunSoundName;
     [SerializeField] private string GunMuzzleFlashName;
     [SerializeField] private Animator muzzleFlash;
+    [SerializeField] private float recoilPower = 400f;
 
     [Header("Auto Fire")]
     private bool shootingDelayed;
@@ -33,6 +34,9 @@ public class Weapon : MonoBehaviour
     [Header("Ammo Box")]
     public int currentAmmoBox = 0;
     public int maxAmmoBox;
+
+    [Header("Player")]
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
@@ -126,14 +130,31 @@ public class Weapon : MonoBehaviour
                     AudioManager.Instance.Play(GunSoundName);
                     CameraShaker.Instance.ShakeOnce(1f, 4f, .1f, .5f);
 
+                    Recoil();
+
                     Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-                    bulletRigidbody.velocity = new Vector2(shootDirection.x,shootDirection.y).normalized * bulletSpeed;
+                    bulletRigidbody.velocity = new Vector2(shootDirection.x,shootDirection.y).normalized * bulletSpeed * Time.deltaTime;
 
                     StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
                 }
             }
         }
     }
+
+    private void Recoil()
+    {
+        if (player.transform.position.x < firePointTransform.position.x)
+        {
+            Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
+            playerRB.AddForce(new Vector2(-recoilPower, 0),ForceMode2D.Force);
+        }
+        else if (player.transform.position.x > firePointTransform.position.x)
+        {
+            Rigidbody2D playerRB = player.GetComponent<Rigidbody2D>();
+            playerRB.AddForce(new Vector2(recoilPower, 0),ForceMode2D.Force);
+        }
+    }
+
     IEnumerator shootingDelay()
     {
         yield return new WaitForSeconds(0.25f);
