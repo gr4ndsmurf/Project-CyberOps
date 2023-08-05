@@ -705,16 +705,18 @@ MonoBehaviour:
   POOL_SIZE: 30
   bulletPrefab: {fileID: 3842002347173610723, guid: 5c2c1729060408a4a8f3faf1371dfd8d, type: 3}
   firePointTransform: {fileID: 1766590544}
-  bulletSpeed: 25
+  bulletSpeed: 2500
   GunSoundName: RifleSound
   GunMuzzleFlashName: Rifle_MuzzleFlash
   muzzleFlash: {fileID: 1171231139}
+  recoilPower: 400
   maxAmmo: 25
   currentAmmo: 0
   reloadTime: 3
   isReloading: 0
   currentAmmoBox: 1
   maxAmmoBox: 10
+  player: {fileID: 1540892030}
 --- !u!1 &427135109
 GameObject:
   m_ObjectHideFlags: 0
@@ -3100,16 +3102,18 @@ MonoBehaviour:
   POOL_SIZE: 15
   bulletPrefab: {fileID: 8815176045954032578, guid: 787ed6e7375fbca4aba8a22b62bc3530, type: 3}
   firePointTransform: {fileID: 505537423}
-  bulletSpeed: 15
+  bulletSpeed: 1500
   GunSoundName: PistolSound
   GunMuzzleFlashName: Pistol_MuzzleFlash
   muzzleFlash: {fileID: 975925960}
+  recoilPower: 400
   maxAmmo: 12
   currentAmmo: 0
   reloadTime: 3
   isReloading: 0
   currentAmmoBox: 1
   maxAmmoBox: 5
+  player: {fileID: 1540892030}
 --- !u!1 &1854092495
 GameObject:
   m_ObjectHideFlags: 0
