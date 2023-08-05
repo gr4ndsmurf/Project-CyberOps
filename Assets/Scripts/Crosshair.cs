@@ -7,7 +7,8 @@ public class Crosshair : MonoBehaviour
     private SpriteRenderer sr;
     private TrailRenderer tr;
 
-    [SerializeField] private Sprite mouseCursorSprite;
+    [SerializeField] private Sprite defaultCursorSprite;
+    [SerializeField] private Sprite onHoverCursorSprite;
     [SerializeField] private Sprite crossHairSprite;
 
     [SerializeField] private WeaponSwitching wS;
@@ -20,13 +21,13 @@ public class Crosshair : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         tr = GetComponent<TrailRenderer>();
-        sr.sprite = mouseCursorSprite;
+        sr.sprite = defaultCursorSprite;
     }
     void Update()
     {
         if (wS.selectedWeapon == 0)
         {
-            sr.sprite = mouseCursorSprite;
+            sr.sprite = defaultCursorSprite;
             tr.emitting = true;
         }
         else if (wS.selectedWeapon > 0)

@@ -3052,7 +3052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4154d498c7471c4f9a58220c34fb526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseCursorSprite: {fileID: 21300000, guid: 700cc3259f6ccff4ea92267309ed2392, type: 3}
+  defaultCursorSprite: {fileID: 21300000, guid: fd28f6af9c4decb4ea1abdb09dfc9408, type: 3}
+  onHoverCursorSprite: {fileID: 21300000, guid: 7e6417b50baa15c49967cf923fc41105, type: 3}
   crossHairSprite: {fileID: 21300000, guid: 54ceeee998f879e4292eade232abcaa9, type: 3}
   wS: {fileID: 502288975}
 --- !u!212 &1733518396
