@@ -3033,7 +3033,7 @@ GameObject:
   - component: {fileID: 1733518396}
   - component: {fileID: 1733518395}
   m_Layer: 0
-  m_Name: crosshair
+  m_Name: MouseCursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3051,8 +3051,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4154d498c7471c4f9a58220c34fb526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normalMouseSprite: {fileID: 0}
-  crossHairSprite: {fileID: 0}
+  mouseCursorSprite: {fileID: 21300000, guid: 0fca60dbc8ecae849a551df63f28776c, type: 3}
+  crossHairSprite: {fileID: 21300000, guid: 54ceeee998f879e4292eade232abcaa9, type: 3}
+  wS: {fileID: 502288975}
 --- !u!212 &1733518396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3112,13 +3113,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733518394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -21000}
+  m_LocalScale: {x: 45, y: 45, z: 300}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1934063463}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1766590543
 GameObject:
@@ -3204,7 +3205,7 @@ MonoBehaviour:
   GunSoundName: PistolSound
   GunMuzzleFlashName: Pistol_MuzzleFlash
   muzzleFlash: {fileID: 975925960}
-  recoilPower: 400
+  recoilPower: 250
   maxAmmo: 12
   currentAmmo: 0
   reloadTime: 3
@@ -3469,6 +3470,7 @@ RectTransform:
   - {fileID: 999105780}
   - {fileID: 37087670}
   - {fileID: 1967629506}
+  - {fileID: 1733518397}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

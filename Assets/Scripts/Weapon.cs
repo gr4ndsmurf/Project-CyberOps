@@ -28,7 +28,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private string GunSoundName;
     [SerializeField] private string GunMuzzleFlashName;
     [SerializeField] private Animator muzzleFlash;
-    [Tooltip("Default: 400")]
+    [Tooltip("Default: Pistol:250 Rifle:400")]
     [SerializeField] private float recoilPower = 400f;
 
     [Header("Auto Fire")]
@@ -140,7 +140,14 @@ public class Weapon : MonoBehaviour
                     muzzleFlash.Play(GunMuzzleFlashName);
                     muzzleFlash.keepAnimatorStateOnDisable = true;
                     AudioManager.Instance.Play(GunSoundName);
-                    CameraShaker.Instance.ShakeOnce(1f, 4f, .1f, .5f);
+                    if (recoilPower <= 250)
+                    {
+                        CameraShaker.Instance.ShakeOnce(2.5f, 1.5f, .1f, .1f);
+                    }
+                    else if (recoilPower > 250)
+                    {
+                        CameraShaker.Instance.ShakeOnce(4f, 2f, .1f, .2f);
+                    }
 
                     Recoil();
 
@@ -197,9 +204,10 @@ public class Weapon : MonoBehaviour
 
     private void WeaponAiming()
     {
-        var dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         armPoint.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
         //Flip
         Vector3 aimLocalScale = transform.localScale;
         Vector3 armPointLocalScale = armPoint.transform.localScale;

@@ -10,9 +10,13 @@ public class Crosshair : MonoBehaviour
     [SerializeField] private Sprite crossHairSprite;
 
     [SerializeField] private WeaponSwitching wS;
-    private void Start()
+
+    private void Awake()
     {
         Cursor.visible = false;
+    }
+    private void Start()
+    {
         sr = GetComponent<SpriteRenderer>();
         sr.sprite = mouseCursorSprite;
     }
