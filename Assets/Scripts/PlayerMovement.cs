@@ -37,9 +37,6 @@ public class PlayerMovement : Movement
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 speed = runningSpeed;
-                if (canJump)
-                {
-                }
             }
             
         }

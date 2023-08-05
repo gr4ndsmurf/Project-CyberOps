@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class PlayerAnimationController : MonoBehaviour
 {
+    // Add this script to "EmptyPlayer" or any "PlayerWith..." gameobject in WeaponHolder.
+    [Tooltip("Select This Object's Animator")]
     public Animator anim;
-
+    [Tooltip("Select Player Movement Script")]
     public PlayerMovement pm;
+    [Tooltip("Select Player Rigidbody2D")]
     public Rigidbody2D rb;
 
     private void Update()

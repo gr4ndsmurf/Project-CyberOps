@@ -5,34 +5,46 @@ using EZCameraShake;
 
 public class Weapon : MonoBehaviour
 {
+    // Add this script to any weapon gameobject in WeaponSystem gameobject.
     [Header("Gun Object From WeaponHolder")]
+    [Tooltip("Select the gameobject in WeaponHolder")]
     [SerializeField] private GameObject gun;
 
     [Header("Bullet Object Pooling")]
+    [Tooltip("Select armPoint in this gameobject")]
     [SerializeField] private GameObject armPoint;
+    [Tooltip("it depends on how many bullets you want in your gun.")]
     [SerializeField] private int POOL_SIZE = 10;
+    [Tooltip("Select any bullet in Prefabs folder.")]
     [SerializeField] private GameObject bulletPrefab;
+    [Tooltip("Select firePoint gameobject in this gun object.")]
     [SerializeField] private Transform firePointTransform;
+    [Tooltip("Default: Pistol=1500 Rifle=2500")]
     [SerializeField] private float bulletSpeed;
     private Queue<GameObject> bulletPool;
 
     [Header("Gun Effects")]
+    [Tooltip("Write your gunsoundname in AudioManager")]
     [SerializeField] private string GunSoundName;
     [SerializeField] private string GunMuzzleFlashName;
     [SerializeField] private Animator muzzleFlash;
+    [Tooltip("Default: 400")]
     [SerializeField] private float recoilPower = 400f;
 
     [Header("Auto Fire")]
     private bool shootingDelayed;
 
     [Header("Ammo System")]
+    [Tooltip("Default: Pistol=12 Rifle=25")]
     [SerializeField] private int maxAmmo;
     public int currentAmmo;
+    [Tooltip("Default: 3")]
     [SerializeField] private float reloadTime = 1f;
     public bool isReloading = false;
 
     [Header("Ammo Box")]
     public int currentAmmoBox = 0;
+    [Tooltip("Default: Pistol=3 Rifle=5")]
     public int maxAmmoBox;
 
     [Header("Player")]

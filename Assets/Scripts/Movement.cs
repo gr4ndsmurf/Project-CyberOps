@@ -5,9 +5,13 @@ using UnityEngine;
 public abstract class Movement : MonoBehaviour
 {
     public int health;
-    [SerializeField] protected float speed;
+    [Tooltip("Default: 0.75")]
+    protected float speed;
+    [Tooltip("Default: 0.75")]
     [SerializeField] protected float walkingSpeed;
+    [Tooltip("Default: 2")]
     [SerializeField] protected float runningSpeed;
+    [Tooltip("Default: 3.5")]
     [SerializeField] protected float jumpForce;
     protected BoxCollider2D boxCollider2d;
     protected Rigidbody2D rb;
