@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
-    private SpriteRenderer sr;
-    private TrailRenderer tr;
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private TrailRenderer tr;
 
     [SerializeField] private Sprite defaultCursorSprite;
     [SerializeField] private Sprite onHoverCursorSprite;
