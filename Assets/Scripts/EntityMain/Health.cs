@@ -57,6 +57,13 @@ public class Health : MonoBehaviour
     public void Kill()
     {
         Killed.Invoke();
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        StartCoroutine(activeFalse(0.40f));
+    }
+
+    private IEnumerator activeFalse(float waitSeconds)
+    {
+        yield return new WaitForSeconds(waitSeconds);
         gameObject.SetActive(false);
     }
 }

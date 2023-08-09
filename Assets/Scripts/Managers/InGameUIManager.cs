@@ -5,6 +5,7 @@ using TMPro;
 
 public class InGameUIManager : MonoBehaviour
 {
+    //Add in inGameUI Canvas
     [SerializeField] private Weapon pistolWP;
     [SerializeField] private Weapon rifleWp;
 
@@ -18,8 +19,6 @@ public class InGameUIManager : MonoBehaviour
 
     [SerializeField] private GameObject PistolOutofAmmoUI;
     [SerializeField] private GameObject RifleOutofAmmoUI;
-
-    // Update is called once per frame
     void Update()
     {
         if (wpS.selectedWeapon == 0)

@@ -6,9 +6,11 @@ using UnityEngine;
 public class PlayOnDamaged : MonoBehaviour
 {
     Health _health = null;
-    [SerializeField] Color damageColor;
-    [SerializeField] SpriteRenderer targetSR;
+    [SerializeField] private Animator animator;
 
+    [SerializeField] private string damagedAnimName;
+
+    [SerializeField] private string killedAnimName;
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -29,10 +31,14 @@ public class PlayOnDamaged : MonoBehaviour
     void OnDamaged(int damage)
     {
         AudioManager.Instance.Play("DamagedSound");
+        animator.Play(damagedAnimName);
+        animator.keepAnimatorStateOnDisable = true;
     }
 
     void OnKilled()
     {
         AudioManager.Instance.Play("KilledSound");
+        animator.Play(killedAnimName);
+        animator.keepAnimatorStateOnDisable = true;
     }
 }
