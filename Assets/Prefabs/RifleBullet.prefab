@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4675223424538183948}
   - component: {fileID: 732832291183676008}
   - component: {fileID: 5083366864940022159}
+  - component: {fileID: -4223000071398937428}
   m_Layer: 0
   m_Name: RifleBullet
   m_TagString: Untagged
@@ -133,3 +134,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.13, y: 0.03}
   m_EdgeRadius: 0
+--- !u!114 &-4223000071398937428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3842002347173610723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce298d087d9c84f4aa94873536ec9094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 20

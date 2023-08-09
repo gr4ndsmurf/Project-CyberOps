@@ -134,6 +134,7 @@ public class Weapon : MonoBehaviour
                     bullet.transform.position = firePointTransform.position;
                     bullet.transform.rotation = firePointTransform.rotation;
                     bullet.SetActive(true);
+                    //bullet.GetComponent<BoxCollider2D>().enabled = true;
 
                     currentAmmo--;
 

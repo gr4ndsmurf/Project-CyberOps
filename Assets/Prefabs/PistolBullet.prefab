@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7799362522245831122}
   - component: {fileID: 864987488308740666}
   - component: {fileID: 8486828395377735081}
+  - component: {fileID: 8934741739783597616}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -133,3 +134,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8934741739783597616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815176045954032578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce298d087d9c84f4aa94873536ec9094, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 10

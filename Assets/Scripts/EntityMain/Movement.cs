@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour
 {
-    public int health;
     [Tooltip("Default: 0.75")]
     protected float speed;
     [Tooltip("Default: 0.75")]
@@ -15,7 +14,6 @@ public abstract class Movement : MonoBehaviour
     [SerializeField] protected float jumpForce;
     protected BoxCollider2D boxCollider2d;
     protected Rigidbody2D rb;
-    public bool isDestroyed;
 
     [SerializeField] protected LayerMask platformLayerMask;
 
@@ -26,14 +24,6 @@ public abstract class Movement : MonoBehaviour
     }
     public abstract void Move();
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            DestroyCharacter();
-        }
-    }
     protected bool IsGrounded()
     {
         float extraHeightText = 0.02f;
@@ -52,11 +42,6 @@ public abstract class Movement : MonoBehaviour
         Debug.DrawRay(boxCollider2d.bounds.center - new Vector3(boxCollider2d.bounds.extents.x, boxCollider2d.bounds.extents.y), Vector2.right * (boxCollider2d.bounds.extents.x), rayColor);
         //Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
-    }
-    protected virtual void DestroyCharacter()
-    {
-        isDestroyed = true;
-        Destroy(gameObject);
     }
 
 }
