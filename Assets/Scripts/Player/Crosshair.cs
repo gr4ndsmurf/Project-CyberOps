@@ -13,6 +13,8 @@ public class Crosshair : MonoBehaviour
 
     [SerializeField] private WeaponSwitching wS;
 
+    public bool mouseOnObject;
+
     private void Awake()
     {
         Cursor.visible = false;
@@ -25,9 +27,14 @@ public class Crosshair : MonoBehaviour
     }
     void Update()
     {
-        if (wS.selectedWeapon == 0)
+        if (wS.selectedWeapon == 0 && !mouseOnObject)
         {
             sr.sprite = defaultCursorSprite;
+            tr.emitting = true;
+        }
+        else if (wS.selectedWeapon == 0 && mouseOnObject)
+        {
+            sr.sprite = onHoverCursorSprite;
             tr.emitting = true;
         }
         else if (wS.selectedWeapon > 0)

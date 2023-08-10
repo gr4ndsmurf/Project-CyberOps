@@ -8,20 +8,38 @@ public class InteractionSystem : MonoBehaviour
     [SerializeField] private bool canInteract;
     [SerializeField] private GameObject interactCanvas;
 
-    public Transform playerTransform; // Oyuncu Transform bileþeni
-    public float triggerDistance = 1.0f; // Belirli seviyeye gelme mesafesi
+    public Transform playerTransform;
+    public float triggerDistance = 1.0f;
 
+    [SerializeField] private WeaponSwitching wS;
+    [SerializeField] private Crosshair crosshair;
+
+    private IInteractable currentInteractable;
+
+    private void Start()
+    {
+        currentInteractable = GetComponent<IInteractable>();
+    }
     private void Update()
     {
-        float distance = Vector2.Distance(playerTransform.position, transform.position);
-        if (distance <= triggerDistance)
+        if (wS.selectedWeapon == 0)
         {
-            canInteract = true;
+            float distance = Vector2.Distance(playerTransform.position, transform.position);
+            if (distance <= triggerDistance)
+            {
+                canInteract = true;
+            }
+            else
+            {
+                canInteract = false;
+                interactCanvas.SetActive(false);
+            }
         }
         else
         {
             canInteract = false;
             interactCanvas.SetActive(false);
+            crosshair.mouseOnObject = false;
         }
     }
     private void OnMouseDown()
@@ -36,6 +54,7 @@ public class InteractionSystem : MonoBehaviour
         if (canInteract)
         {
             interactCanvas.SetActive(true);
+            crosshair.mouseOnObject = true;
         }
     }
     private void OnMouseExit()
@@ -43,12 +62,13 @@ public class InteractionSystem : MonoBehaviour
         if (canInteract)
         {
             interactCanvas.SetActive(false);
+            crosshair.mouseOnObject = false;
         }
     }
 
     private void Interact()
     {
-        Debug.Log("Interaction with the object");
+        currentInteractable.Interact();
     }
 
 }
