@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee640d13e4fc61428aadc83ed6f19c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 7194654454116792862}
+  gun: {fileID: 7194654453913607758}
   armPoint: {fileID: 7194654453947050775}
   POOL_SIZE: 30
   bulletPrefab: {fileID: 3842002347173610723, guid: 5c2c1729060408a4a8f3faf1371dfd8d, type: 3}
@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 7194654453574265190}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -971,7 +971,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: fc3733e2046a9d742b1fa15ad72eb839, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee640d13e4fc61428aadc83ed6f19c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gun: {fileID: 7194654452733141007}
+  gun: {fileID: 7194654453515042888}
   armPoint: {fileID: 7194654452521479753}
   POOL_SIZE: 15
   bulletPrefab: {fileID: 8815176045954032578, guid: 787ed6e7375fbca4aba8a22b62bc3530, type: 3}

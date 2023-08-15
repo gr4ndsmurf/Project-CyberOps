@@ -613,7 +613,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 1, g: 0.99709463, b: 0.71132076, a: 1}
+  m_Color: {r: 0.710567, g: 1, b: 0.70980394, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
@@ -12893,6 +12893,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1112434362148066915, guid: fd4e0d8e893710c44a6b0af02aaf70c7, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112434362148066915, guid: fd4e0d8e893710c44a6b0af02aaf70c7, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1112434362656152805, guid: fd4e0d8e893710c44a6b0af02aaf70c7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -13015,17 +13023,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7194654453574265242, guid: f13e41c880abfe14d8e2b4efe15840e3, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 7194654453574265243, guid: f13e41c880abfe14d8e2b4efe15840e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7194654453574265243, guid: f13e41c880abfe14d8e2b4efe15840e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9
+      value: 1.903
       objectReference: {fileID: 0}
     - target: {fileID: 7194654453574265243, guid: f13e41c880abfe14d8e2b4efe15840e3, type: 3}
       propertyPath: m_LocalPosition.y

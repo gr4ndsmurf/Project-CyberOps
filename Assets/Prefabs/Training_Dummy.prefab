@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 1112434362656152803}
   - component: {fileID: 1112434362656152802}
   - component: {fileID: 1112434362656152800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Training_Dummy
   m_TagString: Target
   m_Icon: {fileID: 0}

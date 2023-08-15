@@ -6,7 +6,7 @@ using EZCameraShake;
 public class Weapon : MonoBehaviour
 {
     // Add this script to any weapon gameobject in WeaponSystem gameobject.
-    [Header("Gun Object From WeaponHolder")]
+    [Header("Gun Upperbody Object From WeaponHolder")]
     [Tooltip("Select the gameobject in WeaponHolder")]
     [SerializeField] private GameObject gun;
 
@@ -217,16 +217,17 @@ public class Weapon : MonoBehaviour
             aimLocalScale.x = -1f;
             armPointLocalScale.x = -1f;
             armPointLocalScale.y = -1f;
-            transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
-            gun.transform.localPosition = new Vector3(0.05f, transform.localPosition.y, transform.localPosition.z);
+            Vector3 newpos = new Vector3(0.05f, 0.05f, 0f);
+            transform.localPosition = new Vector3(0.05f, 0.05f, 0f);
+            gun.transform.localPosition = new Vector3(0.05f, 0.05f, 0f);
         }
         else
         {
             aimLocalScale.x = +1f;
             armPointLocalScale.x = +1f;
             armPointLocalScale.y = +1f;
-            transform.localPosition = new Vector3(0f, transform.localPosition.y, transform.localPosition.z);
-            gun.transform.localPosition = new Vector3(0f, transform.localPosition.y, transform.localPosition.z);
+            transform.localPosition = new Vector3(0f, 0.05f, 0f);
+            gun.transform.localPosition = new Vector3(0f, 0.05f, 0f);
         }
         transform.localScale = aimLocalScale;
         armPoint.transform.localScale = armPointLocalScale;
