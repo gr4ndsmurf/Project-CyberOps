@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEngine.GraphicsBuffer;
+
 public class HitTextPopup : MonoBehaviour
 {
     [SerializeField] Health _healthToObserve = null;
@@ -13,9 +15,17 @@ public class HitTextPopup : MonoBehaviour
     Health _observedHealth = null;
     Coroutine _popupRoutine = null;
 
+    [SerializeField] private Transform entity;
+    [SerializeField] private Vector3 offset;
+
     private void Awake()
     {
         StartObservingHealth(_healthToObserve);
+    }
+
+    private void FixedUpdate()
+    {
+        transform.position = Vector3.Lerp(transform.position, entity.position, 1f) + offset;
     }
 
     public void StartObservingHealth(Health newHealthToObserver)

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class DroneStateMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public DroneState currentState;
+    public DroneController controller;
+
+    private void Start()
     {
-        
+        controller = GetComponent<DroneController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        DroneState state = currentState.State(controller);
+        if (currentState != null)
+        {
+            currentState = state;
+        }
     }
 }
