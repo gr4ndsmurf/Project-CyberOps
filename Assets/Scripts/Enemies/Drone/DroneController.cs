@@ -28,6 +28,7 @@ public class DroneController : MonoBehaviour
     public float bulletSpeed = 15f;
     public float shootingTime = 0.5f;
     public float shootingDelay = 0.5f;
+    [SerializeField] private string GunSoundName;
 
     public Queue<GameObject> bulletPool;
 
@@ -57,6 +58,8 @@ public class DroneController : MonoBehaviour
         {
             bullet.transform.position = firePointTransform.position;
             bullet.SetActive(true);
+
+            AudioManager.Instance.Play(GunSoundName);
 
             Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
             bulletRigidbody.velocity = shootDirection * bulletSpeed;
