@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkingSpeed: 0.75
   runningSpeed: 2
-  jumpForce: 3.5
+  jumpForce: 5
   platformLayerMask:
     serializedVersion: 2
     m_Bits: 128
