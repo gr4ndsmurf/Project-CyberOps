@@ -147,7 +147,7 @@ public class Weapon : MonoBehaviour
                     }
                     else if (recoilPower > 250)
                     {
-                        CameraShaker.Instance.ShakeOnce(4f, 2f, .1f, .2f);
+                        CameraShaker.Instance.ShakeOnce(3f, 1.75f, .1f, .1f);
                     }
 
                     Recoil();

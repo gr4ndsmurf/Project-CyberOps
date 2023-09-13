@@ -9,6 +9,7 @@ public class DroneController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
     public float speed = 3f;
+    private Health health;
 
     [Header("States")]
     public DroneChase chase;
@@ -35,6 +36,7 @@ public class DroneController : MonoBehaviour
     public Transform armPoint;
     private void Start()
     {
+        health = GetComponent<Health>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
 
@@ -51,20 +53,23 @@ public class DroneController : MonoBehaviour
 
     public void HandleShooting()
     {
-        GameObject bullet = GetBulletFromPool();
-
-        Vector3 shootDirection = (target.position - transform.position).normalized;
-        if (bullet != null)
+        if (health.CurrentHealth > 0 )
         {
-            bullet.transform.position = firePointTransform.position;
-            bullet.SetActive(true);
+            GameObject bullet = GetBulletFromPool();
 
-            AudioManager.Instance.Play(GunSoundName);
+            Vector3 shootDirection = (target.position - transform.position).normalized;
+            if (bullet != null)
+            {
+                bullet.transform.position = firePointTransform.position;
+                bullet.SetActive(true);
 
-            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-            bulletRigidbody.velocity = shootDirection * bulletSpeed;
+                AudioManager.Instance.Play(GunSoundName);
 
-            StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
+                Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+                bulletRigidbody.velocity = shootDirection * bulletSpeed;
+
+                StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
+            }
         }
     }
 
