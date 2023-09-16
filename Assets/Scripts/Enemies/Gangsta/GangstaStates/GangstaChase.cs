@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GangstaChase : MonoBehaviour
+public class GangstaChase : GangstaState
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float attackDistance = 5f;
 
-    // Update is called once per frame
-    void Update()
+    public override GangstaState State(GangstaController controller)
     {
-        
+        if (Vector2.Distance(controller.transform.position, controller.target.position) < attackDistance)
+        {
+            controller.animator.SetBool("Attack", true);
+            controller.InvokeRepeating("HandleShooting", controller.shootingTime, controller.shootingDelay);
+            return controller.attack;
+        }
+
+        //Chase Codes
+        if (controller.TargetInDistance() && controller.followEnabled)
+        {
+            controller.PathFollow();
+        }
+
+        return this;
     }
 }

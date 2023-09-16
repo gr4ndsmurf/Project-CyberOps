@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class GangstaStateMachine : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GangstaState currentState;
+    public GangstaController controller;
+
+    private void Start()
     {
-        
+        controller = GetComponent<GangstaController>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        GangstaState state = currentState.State(controller);
+        if (currentState != null)
+        {
+            currentState = state;
+        }
     }
 }
