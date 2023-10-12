@@ -1212,7 +1212,7 @@ MonoBehaviour:
   POOL_SIZE: 15
   bulletPrefab: {fileID: 8815176045954032578, guid: e53898ce1986efa4ab5e06556a8895d3, type: 3}
   firePointTransform: {fileID: 1251058597683107202}
-  bulletSpeed: 20
+  bulletSpeed: 10
   shootingTime: 0.3
   shootingDelay: 0.3
   armPoint: {fileID: 5025915615896725313}

@@ -13935,21 +13935,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
-    - target: {fileID: 104508665492254742, guid: a5964a7e4254e684581c7833cadb9739, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 104508665492254742, guid: a5964a7e4254e684581c7833cadb9739, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1327378684663903154, guid: a5964a7e4254e684581c7833cadb9739, type: 3}
       propertyPath: m_Name
       value: Drone
-      objectReference: {fileID: 0}
-    - target: {fileID: 1327378684663903154, guid: a5964a7e4254e684581c7833cadb9739, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1965992053042970082, guid: a5964a7e4254e684581c7833cadb9739, type: 3}
       propertyPath: target
