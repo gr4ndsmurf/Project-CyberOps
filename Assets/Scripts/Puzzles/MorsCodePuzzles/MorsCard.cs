@@ -17,21 +17,22 @@ public class MorsCard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     [SerializeField] private Canvas canvas;
     private CanvasGroup canvasGroup;
 
-    private Vector3 lastPos;
-
+    [HideInInspector] public Transform parentAfterDrag;
 
     public void Start()
     {
         cardRect = gameObject.GetComponent<RectTransform>();
         cardName.text = morsCardInfo.cardName;
         cardID = morsCardInfo.cardID;
-        lastPos = cardRect.position;
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
+        parentAfterDrag = transform.parent;
+        transform.SetParent(transform.root);
+        transform.SetAsLastSibling();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -43,6 +44,7 @@ public class MorsCard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         canvasGroup.alpha = 1f;
         canvasGroup.blocksRaycasts = true;
+        transform.SetParent(parentAfterDrag);
     }
 
     public void OnPointerDown(PointerEventData eventData)
