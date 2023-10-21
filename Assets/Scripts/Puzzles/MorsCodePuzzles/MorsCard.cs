@@ -49,6 +49,6 @@ public class MorsCard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
     }
 }

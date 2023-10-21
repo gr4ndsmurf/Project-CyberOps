@@ -7,13 +7,9 @@ public class CardSlot : MonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
-        /*GameObject dropped = eventData.pointerDrag;
-        MorsCard card = dropped.GetComponent<MorsCard>();
-        card.parentAfterDrag = transform;*/
-
         if (transform.childCount == 0)
         {
-            Debug.Log("DROPPED");
+            //Debug.Log("DROPPED");
             GameObject dropped = eventData.pointerDrag;
             MorsCard draggableItem = dropped.GetComponent<MorsCard>();
             draggableItem.parentAfterDrag = transform;
@@ -21,7 +17,7 @@ public class CardSlot : MonoBehaviour, IDropHandler
         }
         else //swap items
         {
-            Debug.Log("Swap items)");
+            //Debug.Log("Swap items)");
 
             GameObject dropped = eventData.pointerDrag;
             MorsCard draggableItem = dropped.GetComponent<MorsCard>();
