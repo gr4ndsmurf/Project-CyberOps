@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Dynamic;
 
-public class MorsCard : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class MorsCard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     public MorsCardInfo morsCardInfo;
 
@@ -14,36 +14,39 @@ public class MorsCard : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, I
     public int cardID;
 
     [SerializeField] private RectTransform cardRect;
+    [SerializeField] private Canvas canvas;
+    private CanvasGroup canvasGroup;
 
-    private Vector3 firstPos;
+    private Vector3 lastPos;
+
 
     public void Start()
     {
         cardRect = gameObject.GetComponent<RectTransform>();
         cardName.text = morsCardInfo.cardName;
         cardID = morsCardInfo.cardID;
+        lastPos = cardRect.position;
+        canvasGroup = gameObject.GetComponent<CanvasGroup>();
     }
-    
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
-        firstPos = cardRect.position;
-        cardRect.localScale = new Vector3(1, 1, 1);
+        canvasGroup.alpha = 0.6f;
+        canvasGroup.blocksRaycasts = false;
     }
+
     public void OnDrag(PointerEventData eventData)
     {
-        cardRect.position = eventData.position;
-        cardRect.localScale = new Vector3(1, 1, 1);
+        cardRect.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
-    public void OnPointerUp(PointerEventData eventData)
+
+    public void OnEndDrag(PointerEventData eventData)
     {
-        cardRect.position = firstPos;
+        canvasGroup.alpha = 1f;
+        canvasGroup.blocksRaycasts = true;
     }
-    public void OnPointerEnter(PointerEventData eventData)
+
+    public void OnPointerDown(PointerEventData eventData)
     {
-        cardRect.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        cardRect.localScale = new Vector3(1, 1, 1);
+        Debug.Log("OnPointerDown");
     }
 }
