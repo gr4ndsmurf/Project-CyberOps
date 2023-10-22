@@ -7,6 +7,12 @@ public class MorsManager : MonoBehaviour
     public PuzzleSlot[] puzzleSlots;
 
     bool onetime = false;
+
+    [SerializeField] Animator morseLightAnim;
+
+    [SerializeField] private GameObject MorseCodeCanvas;
+
+    public int CompleteCheck = 0;
     void Update()
     {
         if (!onetime)
@@ -15,9 +21,12 @@ public class MorsManager : MonoBehaviour
             if (checkComplete)
             {
                 Debug.Log("LEVEL COMPLETED!");
+                //morseLightAnim.SetBool("isCompleted", true);
+                CompleteCheck = 1;
                 onetime = true;
             }
         }
+        morseLightAnim.SetInteger("CompleteCheck", CompleteCheck);
     }
 
     public bool AllSlotComplete()
@@ -30,5 +39,10 @@ public class MorsManager : MonoBehaviour
             }
         }
         return true;
+    }
+
+    public void CloseCanvas()
+    {
+        MorseCodeCanvas.SetActive(false);
     }
 }
