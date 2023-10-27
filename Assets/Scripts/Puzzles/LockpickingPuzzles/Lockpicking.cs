@@ -49,6 +49,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_2;
+                            AudioManager.Instance.Play("Lockpick");
                         }
                     }
                     else
@@ -64,6 +65,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_3;
+                            AudioManager.Instance.Play("Lockpick");
                         }
                     }
                     else
@@ -72,6 +74,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_1;
+                            AudioManager.Instance.Play("FailLockpick");
                         }
                     }
                     break;
@@ -83,6 +86,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_4;
+                            AudioManager.Instance.Play("Lockpick");
                         }
                     }
                     else
@@ -91,6 +95,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_2;
+                            AudioManager.Instance.Play("FailLockpick");
                         }
                     }
                     break;
@@ -102,6 +107,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Completed;
+                            AudioManager.Instance.Play("OpenChest");
                         }
                     }
                     else
@@ -110,6 +116,7 @@ public class Lockpicking : MonoBehaviour
                         if (Input.GetKeyDown(KeyCode.F))
                         {
                             LockpickCurrentState = LockpickStates.Stage_3;
+                            AudioManager.Instance.Play("FailLockpick");
                         }
                     }
                     break;
