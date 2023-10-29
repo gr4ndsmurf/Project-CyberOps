@@ -22,18 +22,25 @@ public class Target : MonoBehaviour
     {
         // subscribe to get notified when this health takes damage!
         Health.Damaged += OnTakeDamage;
+        Health.Healed += HealthPotion;
         Health.Killed += OnKilled;
     }
 
     private void OnDisable()
     {
         Health.Damaged -= OnTakeDamage;
+        Health.Healed -= HealthPotion;
         Health.Killed -= OnKilled;
     }
 
     void OnTakeDamage(int damage)
     {
         // on damaged, display the new health
+        _healthSlider.value = Health.CurrentHealth;
+    }
+
+    void HealthPotion(int amount)
+    {
         _healthSlider.value = Health.CurrentHealth;
     }
 

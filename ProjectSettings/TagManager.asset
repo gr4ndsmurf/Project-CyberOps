@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Target
   - Obstacle
+  - Pistol
+  - Rifle
+  - ShopManager
   layers:
   - Default
   - TransparentFX

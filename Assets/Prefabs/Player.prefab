@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 7194654452454934989}
   m_Layer: 0
   m_Name: Rifle
-  m_TagString: Untagged
+  m_TagString: Rifle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1390,6 +1390,7 @@ GameObject:
   - component: {fileID: 2803197117638368046}
   - component: {fileID: 4695959458250140753}
   - component: {fileID: 3274810395650304671}
+  - component: {fileID: 963825370528183514}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1548,6 +1549,19 @@ MonoBehaviour:
   animator: {fileID: 7194654453577272972}
   damagedAnimName: 
   killedAnimName: 
+--- !u!114 &963825370528183514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194654453574265242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9cef4ee8e51da46b2e1c3cc48a4a05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 50
 --- !u!1 &7194654453577272963
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,7 +2125,7 @@ GameObject:
   - component: {fileID: 7194654454371358701}
   m_Layer: 0
   m_Name: Pistol
-  m_TagString: Untagged
+  m_TagString: Pistol
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

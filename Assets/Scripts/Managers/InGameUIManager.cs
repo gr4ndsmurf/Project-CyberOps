@@ -22,10 +22,12 @@ public class InGameUIManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI cardText;
+    [SerializeField] private TextMeshProUGUI healthPotionText;
     void Update()
     {
         moneyText.text = GameManager.Instance.money.ToString();
         cardText.text = GameManager.Instance.cards.ToString();
+        healthPotionText.text = GameManager.Instance.HealthPotion.ToString();
 
         if (wpS.selectedWeapon == 0)
         {
