@@ -19,8 +19,14 @@ public class InGameUIManager : MonoBehaviour
 
     [SerializeField] private GameObject PistolOutofAmmoUI;
     [SerializeField] private GameObject RifleOutofAmmoUI;
+
+    [SerializeField] private TextMeshProUGUI moneyText;
+    [SerializeField] private TextMeshProUGUI cardText;
     void Update()
     {
+        moneyText.text = GameManager.Instance.money.ToString();
+        cardText.text = GameManager.Instance.cards.ToString();
+
         if (wpS.selectedWeapon == 0)
         {
             ammoUI.SetActive(false);

@@ -5,7 +5,7 @@ using System;
 
 public class InteractionSystem : MonoBehaviour
 {
-    [SerializeField] private bool canInteract;
+    private bool canInteract;
     [SerializeField] private GameObject interactCanvas;
 
     public Transform playerTransform;

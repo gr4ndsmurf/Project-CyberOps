@@ -31,7 +31,7 @@ public class MorsCard : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup.alpha = 0.6f;
         canvasGroup.blocksRaycasts = false;
         parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        transform.SetParent(canvas.transform);
         transform.SetAsLastSibling();
     }
 

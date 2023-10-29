@@ -19,6 +19,10 @@ public class Lockpicking : MonoBehaviour
 
     [SerializeField] private Image LockIMG;
     [SerializeField] private Sprite[] stages;
+
+    [SerializeField] private GameObject Items;
+    [SerializeField] private GameObject chest;
+    [SerializeField] private Animator chestAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -125,8 +129,12 @@ public class Lockpicking : MonoBehaviour
                     if (!completed)
                     {
                         Debug.Log("Lockpicking Completed");
+                        Cursor.visible = false;
+                        Items.SetActive(true);
                         canvas.SetActive(false);
                         ball.transform.DOKill(true);
+                        chest.GetComponent<BoxCollider2D>().enabled = false;
+                        chestAnim.SetBool("Opened", true);
                         completed = true;
                     }
 
@@ -139,6 +147,7 @@ public class Lockpicking : MonoBehaviour
 
     public void CloseCanvas()
     {
+        Cursor.visible = false;
         canvas.SetActive(false);
     }
 }
