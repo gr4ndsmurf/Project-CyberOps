@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ShopManager : SingletonDontDestroyMono<ShopManager>
 {
-    [SerializeField] private GameObject shopCanvas;
+    public GameObject shopCanvas;
 
     [SerializeField] int TotalMoney;
     [SerializeField] int TotalCards;
