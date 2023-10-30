@@ -130,6 +130,8 @@ public class Lockpicking : MonoBehaviour
                     {
                         Debug.Log("Lockpicking Completed");
                         Cursor.visible = false;
+                        GameManager.Instance.canAttack = true;
+                        GameManager.Instance.canMove = true;
                         Items.SetActive(true);
                         canvas.SetActive(false);
                         ball.transform.DOKill(true);
@@ -149,5 +151,7 @@ public class Lockpicking : MonoBehaviour
     {
         Cursor.visible = false;
         canvas.SetActive(false);
+        GameManager.Instance.canAttack = true;
+        GameManager.Instance.canMove = true;
     }
 }

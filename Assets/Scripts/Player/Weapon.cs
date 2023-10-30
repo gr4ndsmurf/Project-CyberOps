@@ -65,7 +65,7 @@ public class Weapon : MonoBehaviour
     }
     void Update()
     {
-        if (gun.activeInHierarchy)
+        if (gun.activeInHierarchy && GameManager.Instance.canAttack)
         {
             currentAmmoBox = Mathf.Clamp(currentAmmoBox, 0, maxAmmoBox);
 

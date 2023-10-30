@@ -53,7 +53,7 @@ public class DroneController : MonoBehaviour
 
     public void HandleShooting()
     {
-        if (health.CurrentHealth > 0 )
+        if (health.CurrentHealth > 0 && !GameManager.Instance.isDead)
         {
             GameObject bullet = GetBulletFromPool();
 

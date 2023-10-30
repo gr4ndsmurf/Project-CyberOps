@@ -81,4 +81,12 @@ public class ShopManager : SingletonDontDestroyMono<ShopManager>
             GameManager.Instance.cards -= rifleCardPrice;
         }
     }
+
+    public void CloseCanvas()
+    {
+        Cursor.visible = false;
+        shopCanvas.SetActive(false);
+        GameManager.Instance.canAttack = true;
+        GameManager.Instance.canMove = true;
+    }
 }

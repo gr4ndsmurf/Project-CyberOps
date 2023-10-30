@@ -29,6 +29,8 @@ public class MorsManager : MonoBehaviour
                 //morseLightAnim.SetBool("isCompleted", true);
                 MorseCodeCanvas.SetActive(false);
                 Cursor.visible = false;
+                GameManager.Instance.canAttack = true;
+                GameManager.Instance.canMove = true;
                 door_Open.SetActive(true);
                 door_Closed.SetActive(false);
                 interactionObject.GetComponent<BoxCollider2D>().enabled = false;
@@ -55,5 +57,7 @@ public class MorsManager : MonoBehaviour
     {
         MorseCodeCanvas.SetActive(false);
         Cursor.visible = false;
+        GameManager.Instance.canAttack = true;
+        GameManager.Instance.canMove = true;
     }
 }

@@ -9,6 +9,8 @@ public class Shop : MonoBehaviour, IInteractable
     {
         Cursor.visible = true;
         ShopManager.Instance.shopCanvas.SetActive(true);
+        GameManager.Instance.canAttack = false;
+        GameManager.Instance.canMove = false;
         //AudioManager.Instance.Play("InteractShop");
         Debug.Log("Shop");
     }

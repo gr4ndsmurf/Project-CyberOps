@@ -17,7 +17,7 @@ public class HealthPotion : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            if (GameManager.Instance.HealthPotion > 0 && health.CurrentHealth < health.MaxHealth)
+            if (GameManager.Instance.HealthPotion > 0 && health.CurrentHealth < health.MaxHealth && GameManager.Instance.canAttack)
             {
                 health.Heal(amount);
                 GameManager.Instance.HealthPotion -= 1;

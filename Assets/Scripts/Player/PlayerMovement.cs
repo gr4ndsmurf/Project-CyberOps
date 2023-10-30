@@ -17,6 +17,11 @@ public class PlayerMovement : Movement
             canJump = false;
         }
         Jump();
+
+        if (GetComponentInChildren<Health>().CurrentHealth <= 0)
+        {
+            GameManager.Instance.isDead = true;
+        }
     }
     private void FixedUpdate()
     {
@@ -25,9 +30,12 @@ public class PlayerMovement : Movement
 
     public override void Move()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        Running();
+        if (GameManager.Instance.canMove)
+        {
+            float moveInput = Input.GetAxisRaw("Horizontal");
+            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            Running();
+        }
     }
     public void Running()
     {
@@ -44,7 +52,7 @@ public class PlayerMovement : Movement
 
     public void Jump()
     {
-        if (canJump)
+        if (canJump && GameManager.Instance.canMove)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {

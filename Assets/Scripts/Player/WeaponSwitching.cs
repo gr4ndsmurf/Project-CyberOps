@@ -18,44 +18,47 @@ public class WeaponSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int previousSelectedWeapon = selectedWeapon;
-
-        if (!pistolWP.isReloading && !rifleWp.isReloading)
+        if (GameManager.Instance.canAttack)
         {
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
-            {
-                if (selectedWeapon >= transform.childCount - 1)
-                {
-                    selectedWeapon = 0;
-                }
-                else
-                {
-                    selectedWeapon++;
-                }
-            }
-            if (Input.GetAxis("Mouse ScrollWheel") < 0)
-            {
-                if (selectedWeapon <= 0)
-                {
-                    selectedWeapon = transform.childCount - 1;
-                }
-                else
-                {
-                    selectedWeapon--;
-                }
-            }
+            int previousSelectedWeapon = selectedWeapon;
 
-            for (int i = 0; i < transform.childCount; i++)
+            if (!pistolWP.isReloading && !rifleWp.isReloading)
             {
-                if (Input.GetKeyDown(Keycodes[i]))
+                if (Input.GetAxis("Mouse ScrollWheel") > 0)
                 {
-                    selectedWeapon = i;
+                    if (selectedWeapon >= transform.childCount - 1)
+                    {
+                        selectedWeapon = 0;
+                    }
+                    else
+                    {
+                        selectedWeapon++;
+                    }
                 }
-            }
+                if (Input.GetAxis("Mouse ScrollWheel") < 0)
+                {
+                    if (selectedWeapon <= 0)
+                    {
+                        selectedWeapon = transform.childCount - 1;
+                    }
+                    else
+                    {
+                        selectedWeapon--;
+                    }
+                }
 
-            if (previousSelectedWeapon != selectedWeapon)
-            {
-                SelectWeapon();
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    if (Input.GetKeyDown(Keycodes[i]))
+                    {
+                        selectedWeapon = i;
+                    }
+                }
+
+                if (previousSelectedWeapon != selectedWeapon)
+                {
+                    SelectWeapon();
+                }
             }
         }
     }

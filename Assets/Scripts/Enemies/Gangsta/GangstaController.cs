@@ -147,19 +147,22 @@ public class GangstaController : MonoBehaviour
     //Object Pooling
     public void HandleShooting()
     {
-        GameObject bullet = GetBulletFromPool();
-
-        Vector3 shootDirection = (target.position - transform.position).normalized;
-        if (bullet != null)
+        if (GetComponentInChildren<Health>().CurrentHealth > 0 && !GameManager.Instance.isDead)
         {
-            bullet.transform.position = firePointTransform.position;
-            bullet.transform.rotation = firePointTransform.rotation;
-            bullet.SetActive(true);
+            GameObject bullet = GetBulletFromPool();
 
-            Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
-            bulletRigidbody.velocity = shootDirection * bulletSpeed;
+            Vector3 shootDirection = (target.position - transform.position).normalized;
+            if (bullet != null)
+            {
+                bullet.transform.position = firePointTransform.position;
+                bullet.transform.rotation = firePointTransform.rotation;
+                bullet.SetActive(true);
 
-            StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
+                Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
+                bulletRigidbody.velocity = shootDirection * bulletSpeed;
+
+                StartCoroutine(DisableBulletAfterDelay(bullet, 2f));
+            }
         }
     }
 

@@ -11,6 +11,8 @@ public class Chest : MonoBehaviour, IInteractable
     {
         Cursor.visible = true;
         lockpicking.SetActive(true);
+        GameManager.Instance.canAttack = false;
+        GameManager.Instance.canMove = false;
         AudioManager.Instance.Play("InteractChest");
         Debug.Log("Chest");
     }
