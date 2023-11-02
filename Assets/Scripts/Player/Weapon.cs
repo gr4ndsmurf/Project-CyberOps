@@ -6,9 +6,9 @@ using EZCameraShake;
 public class Weapon : MonoBehaviour
 {
     // Add this script to any weapon gameobject in WeaponSystem gameobject.
-    [Header("Gun Upperbody Object From WeaponHolder")]
+    [Header("Upperbody Object From WeaponHolder")]
     [Tooltip("Select the gameobject in WeaponHolder")]
-    [SerializeField] private GameObject gun;
+    [SerializeField] private GameObject upperBody;
 
     [Header("Bullet Object Pooling")]
     [Tooltip("Select armPoint in this gameobject")]
@@ -50,6 +50,8 @@ public class Weapon : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject player;
 
+    [SerializeField] private GameObject legs;
+    private Vector3 legPos;
     private void Start()
     {
         bulletPool = new Queue<GameObject>();
@@ -62,10 +64,12 @@ public class Weapon : MonoBehaviour
         }
 
         currentAmmo = maxAmmo;
+
+        legPos = legs.transform.localPosition;
     }
     void Update()
     {
-        if (gun.activeInHierarchy && GameManager.Instance.canAttack)
+        if (upperBody.activeInHierarchy && GameManager.Instance.canAttack)
         {
             currentAmmoBox = Mathf.Clamp(currentAmmoBox, 0, maxAmmoBox);
 
@@ -217,20 +221,17 @@ public class Weapon : MonoBehaviour
             aimLocalScale.x = -1f;
             armPointLocalScale.x = -1f;
             armPointLocalScale.y = -1f;
-            Vector3 newpos = new Vector3(0.05f, 0.05f, 0f);
-            transform.localPosition = new Vector3(0.05f, 0.05f, 0f);
-            gun.transform.localPosition = new Vector3(0.05f, 0.05f, 0f);
+            legs.transform.localPosition = legPos;
         }
         else
         {
             aimLocalScale.x = +1f;
             armPointLocalScale.x = +1f;
             armPointLocalScale.y = +1f;
-            transform.localPosition = new Vector3(0f, 0.05f, 0f);
-            gun.transform.localPosition = new Vector3(0f, 0.05f, 0f);
+            legs.transform.localPosition = legPos;
         }
         transform.localScale = aimLocalScale;
         armPoint.transform.localScale = armPointLocalScale;
-        gun.transform.localScale = aimLocalScale;
+        upperBody.transform.localScale = aimLocalScale;
     }
 }

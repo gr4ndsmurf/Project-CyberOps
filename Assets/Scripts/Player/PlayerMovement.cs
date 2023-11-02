@@ -22,6 +22,10 @@ public class PlayerMovement : Movement
         {
             GameManager.Instance.isDead = true;
         }
+        else
+        {
+            GameManager.Instance.isDead = false;
+        }
     }
     private void FixedUpdate()
     {
