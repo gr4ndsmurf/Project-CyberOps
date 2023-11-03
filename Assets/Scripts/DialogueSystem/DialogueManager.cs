@@ -8,7 +8,7 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
 {
     public Image actorImage;
     public TextMeshProUGUI actorName;
-    public TextMeshProUGUI messageText;
+    public Text messageText;
     public RectTransform backgroundBox;
 
     Message[] currentMessages;
@@ -25,6 +25,7 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
 
         Debug.Log("Started Conversation! Loaded messages: " + messages.Length);
         DisplayMessage();
+        backgroundBox.LeanScale(Vector3.one, 0.5f).setEaseInOutExpo();
     }
     public void DisplayMessage()
     {
@@ -34,6 +35,8 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
         Actor actorToDisplay = currentActors[messageToDisplay.actorID];
         actorName.text = actorToDisplay.name;
         actorImage.sprite = actorToDisplay.sprite;
+
+        AnimateTextColor();
     }
     public void NextMessage()
     {
@@ -45,14 +48,21 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
         else
         {
             Debug.Log("Conversation ended!");
+            backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
             isActive = false;
         }
+    }
+
+    void AnimateTextColor()
+    {
+        LeanTween.textAlpha(messageText.rectTransform, 0, 0);
+        LeanTween.textAlpha(messageText.rectTransform, 1, 0.5f);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        backgroundBox.transform.localScale = Vector3.zero;
     }
 
     // Update is called once per frame
