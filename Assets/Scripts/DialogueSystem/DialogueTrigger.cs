@@ -17,6 +17,7 @@ public class DialogueTrigger : MonoBehaviour
 public class Message
 {
     public int actorID;
+    [TextArea(6, 6)]
     public string message;
 }
 
