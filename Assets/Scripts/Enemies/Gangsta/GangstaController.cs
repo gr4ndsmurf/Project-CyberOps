@@ -41,6 +41,7 @@ public class GangstaController : MonoBehaviour
     public float bulletSpeed = 15f;
     public float shootingTime = 0.5f;
     public float shootingDelay = 0.5f;
+    [SerializeField] private Animator muzzleFlash;
 
     public Queue<GameObject> bulletPool;
 
@@ -157,6 +158,9 @@ public class GangstaController : MonoBehaviour
                 bullet.transform.position = firePointTransform.position;
                 bullet.transform.rotation = firePointTransform.rotation;
                 bullet.SetActive(true);
+
+                muzzleFlash.Play("Rifle_MuzzleFlash");
+                muzzleFlash.keepAnimatorStateOnDisable = true;
 
                 Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
                 bulletRigidbody.velocity = shootDirection * bulletSpeed;

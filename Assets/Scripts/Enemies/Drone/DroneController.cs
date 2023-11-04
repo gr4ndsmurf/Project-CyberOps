@@ -30,6 +30,7 @@ public class DroneController : MonoBehaviour
     public float shootingTime = 0.5f;
     public float shootingDelay = 0.5f;
     [SerializeField] private string GunSoundName;
+    [SerializeField] private Animator muzzleFlash;
 
     public Queue<GameObject> bulletPool;
 
@@ -62,6 +63,9 @@ public class DroneController : MonoBehaviour
             {
                 bullet.transform.position = firePointTransform.position;
                 bullet.SetActive(true);
+
+                muzzleFlash.Play("Rifle_MuzzleFlash");
+                muzzleFlash.keepAnimatorStateOnDisable = true;
 
                 AudioManager.Instance.Play(GunSoundName);
 
