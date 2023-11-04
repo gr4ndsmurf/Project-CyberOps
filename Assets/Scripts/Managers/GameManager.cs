@@ -20,4 +20,13 @@ public class GameManager : SingletonDontDestroyMono<GameManager>
         canMove = true;
         isDead = false;
     }
+
+    private void FixedUpdate()
+    {
+        if (isDead)
+        {
+            canAttack = false;
+            canMove = false;
+        }
+    }
 }

@@ -246,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5159769713778817353
 Transform:
   m_ObjectHideFlags: 0
@@ -1008,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3412355318667407100
 Transform:
   m_ObjectHideFlags: 0
@@ -1231,8 +1231,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1379394704188337072}
-  damagedAnimName: 
-  killedAnimName: 
+  damagedAnimName: PlayerHurt
+  killedAnimName: PlayerDead
+  player: 1
+  weaponHolderObjects:
+  - {fileID: 330751381489417479}
+  - {fileID: 2459627669445401418}
+  - {fileID: 3245287386374405218}
+  wp: {fileID: 5003780954231283845}
+  weaponsAnimator:
+  - {fileID: 1379394704188337072}
+  - {fileID: 7758462252481328259}
+  - {fileID: 4925345296187450053}
+  upperBody:
+  - {fileID: 1379394704188337072}
+  - {fileID: 5667730737493381152}
+  - {fileID: 7553827758033404443}
 --- !u!114 &9017903780081337642
 MonoBehaviour:
   m_ObjectHideFlags: 0

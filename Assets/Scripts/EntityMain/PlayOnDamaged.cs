@@ -13,6 +13,12 @@ public class PlayOnDamaged : MonoBehaviour
     [SerializeField] private string killedAnimName;
 
     bool killed = false;
+
+    [SerializeField] private bool player;
+    [SerializeField] private GameObject[] weaponHolderObjects;
+    [SerializeField] WeaponSwitching wp;
+    [SerializeField] private Animator[] weaponsAnimator;
+    [SerializeField] private Animator[] upperBody;
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -34,6 +40,13 @@ public class PlayOnDamaged : MonoBehaviour
     {
         if (_health.CurrentHealth > 0)
         {
+            //if PlayOnDamaged.cs is player's script.
+            if (player)
+            {
+                animator = weaponsAnimator[wp.selectedWeapon];
+                upperBody[wp.selectedWeapon].Play(damagedAnimName);
+            }
+
             AudioManager.Instance.Play("DamagedSound");
             animator.Play(damagedAnimName);
             animator.keepAnimatorStateOnDisable = true;
@@ -45,6 +58,15 @@ public class PlayOnDamaged : MonoBehaviour
         if (!killed)
         {
             AudioManager.Instance.Play("KilledSound");
+
+            //if PlayOnDamaged.cs is player's script.
+            if (player)
+            {
+                weaponHolderObjects[0].SetActive(true);
+                weaponHolderObjects[1].SetActive(false);
+                weaponHolderObjects[2].SetActive(false);
+                animator = weaponsAnimator[0];
+            }
             animator.Play(killedAnimName);
             //animator.keepAnimatorStateOnDisable = true;
             killed = true;
