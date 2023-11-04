@@ -14,6 +14,7 @@ public class DroneIdle : DroneState
         if (Vector2.Distance(controller.transform.position, controller.target.position) < chaseDistance)
         {
             controller.animator.SetBool("Chase", true);
+            controller.transform.localScale = new Vector3(1, 1, 1);
             return controller.chase;
         }
 

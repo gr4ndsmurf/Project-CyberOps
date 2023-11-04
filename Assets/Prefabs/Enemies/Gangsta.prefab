@@ -1335,5 +1335,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7547212930034119066}
-  damagedAnimName: Gangsta_Hurt_anim
-  killedAnimName: Gangsta_Killed_anim
+  damagedAnimName: gangsta_Hurt_anim
+  killedAnimName: gangsta_Killed_anim

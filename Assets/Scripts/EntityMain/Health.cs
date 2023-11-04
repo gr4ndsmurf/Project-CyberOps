@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
     {
         Killed.Invoke();
         //gameObject.GetComponent<Collider2D>().enabled = false;
-        StartCoroutine(activeFalse(0.40f));
+        StartCoroutine(activeFalse(0.60f));
     }
 
     private IEnumerator activeFalse(float waitSeconds)

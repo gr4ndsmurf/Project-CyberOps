@@ -11,6 +11,8 @@ public class PlayOnDamaged : MonoBehaviour
     [SerializeField] private string damagedAnimName;
 
     [SerializeField] private string killedAnimName;
+
+    bool killed = false;
     private void Awake()
     {
         _health = GetComponent<Health>();
@@ -30,15 +32,22 @@ public class PlayOnDamaged : MonoBehaviour
 
     void OnDamaged(int damage)
     {
-        AudioManager.Instance.Play("DamagedSound");
-        animator.Play(damagedAnimName);
-        animator.keepAnimatorStateOnDisable = true;
+        if (_health.CurrentHealth > 0)
+        {
+            AudioManager.Instance.Play("DamagedSound");
+            animator.Play(damagedAnimName);
+            animator.keepAnimatorStateOnDisable = true;
+        }
     }
 
     void OnKilled()
     {
-        AudioManager.Instance.Play("KilledSound");
-        animator.Play(killedAnimName);
-        animator.keepAnimatorStateOnDisable = true;
+        if (!killed)
+        {
+            AudioManager.Instance.Play("KilledSound");
+            animator.Play(killedAnimName);
+            //animator.keepAnimatorStateOnDisable = true;
+            killed = true;
+        }
     }
 }
