@@ -63,6 +63,11 @@ public class PlayerMovement : Movement
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             }
         }
+
+        if(!GameManager.Instance.canMove)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
     
 }

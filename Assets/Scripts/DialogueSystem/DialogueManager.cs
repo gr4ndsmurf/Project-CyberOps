@@ -49,6 +49,8 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
         {
             Debug.Log("Conversation ended!");
             backgroundBox.LeanScale(Vector3.zero, 0.5f).setEaseInOutExpo();
+            GameManager.Instance.canMove = true;
+            GameManager.Instance.canAttack = true;
             isActive = false;
         }
     }
@@ -68,6 +70,12 @@ public class DialogueManager : SingletonDontDestroyMono<DialogueManager>
     // Update is called once per frame
     void Update()
     {
+        if (isActive == true)
+        {
+            GameManager.Instance.canMove = false;
+            GameManager.Instance.canAttack = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && isActive == true)
         {
             NextMessage();

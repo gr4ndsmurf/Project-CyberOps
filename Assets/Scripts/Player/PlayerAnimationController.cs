@@ -14,13 +14,19 @@ public class PlayerAnimationController : MonoBehaviour
 
     private void Update()
     {
-        Jump();
+        if (GameManager.Instance.canMove)
+        {
+            Jump();
+        }
     }
     private void FixedUpdate()
     {
-        Walk();
-        Run();
-        Flip();
+        if (GameManager.Instance.canMove)
+        {
+            Walk();
+            Run();
+            Flip();
+        }
     }
 
     public void Walk()
