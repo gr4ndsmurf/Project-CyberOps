@@ -13,7 +13,6 @@ public class GangstaIdle : GangstaState
     {
         if (Vector2.Distance(controller.transform.position, controller.target.position) < chaseDistance)
         {
-            controller.animator.SetBool("Chase", true);
             controller.speed = controller.chaseSpeed;
             return controller.chase;
         }

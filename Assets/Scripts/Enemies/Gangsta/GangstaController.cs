@@ -170,6 +170,20 @@ public class GangstaController : MonoBehaviour
         }
     }
 
+    public void CheckVelocity(GangstaController controller)
+    {
+        if (controller.rb.velocity.x == 0)
+        {
+            controller.animator.SetBool("Idle", true);
+            controller.animator.SetBool("Walk", false);
+        }
+        else
+        {
+            controller.animator.SetBool("Idle", false);
+            controller.animator.SetBool("Walk", true);
+        }
+    }
+
     private IEnumerator DisableBulletAfterDelay(GameObject bullet, float delay)
     {
         yield return new WaitForSeconds(delay);

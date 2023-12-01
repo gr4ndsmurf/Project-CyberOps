@@ -20,6 +20,7 @@ public class HealthPotion : MonoBehaviour
             if (GameManager.Instance.HealthPotion > 0 && health.CurrentHealth < health.MaxHealth && GameManager.Instance.canAttack)
             {
                 health.Heal(amount);
+                AudioManager.Instance.Play("HPotionSound");
                 GameManager.Instance.HealthPotion -= 1;
             }
         }

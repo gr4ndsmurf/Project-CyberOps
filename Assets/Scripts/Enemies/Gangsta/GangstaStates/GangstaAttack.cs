@@ -10,8 +10,6 @@ public class GangstaAttack : GangstaState
     {
         if (Vector2.Distance(controller.transform.position, controller.target.position) > shootingRange)
         {
-            controller.animator.SetBool("Chase", true);
-            controller.animator.SetBool("Attack", false);
             controller.CancelInvoke("HandleShooting");
             return controller.chase;
         }
@@ -35,8 +33,12 @@ public class GangstaAttack : GangstaState
 
         WeaponAiming(controller);
 
+        controller.CheckVelocity(controller);
+
         return this;
     }
+
+    
 
     private void WeaponAiming(GangstaController controller)
     {
