@@ -1571,7 +1571,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   changeTime: 13.5
-  sceneName: DemoScene
+  sceneName: Level_Greenzone
 --- !u!1 &275726147
 GameObject:
   m_ObjectHideFlags: 0

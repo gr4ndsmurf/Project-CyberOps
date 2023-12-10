@@ -28,5 +28,10 @@ public class GameManager : SingletonDontDestroyMono<GameManager>
             canAttack = false;
             canMove = false;
         }
+        else
+        {
+            canAttack = true;
+            canMove = true;
+        }
     }
 }

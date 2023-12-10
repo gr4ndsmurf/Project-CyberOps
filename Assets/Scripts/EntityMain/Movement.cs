@@ -27,7 +27,7 @@ public abstract class Movement : MonoBehaviour
     protected bool IsGrounded()
     {
         float extraHeightText = 0.02f;
-        RaycastHit2D raycastHit = Physics2D.CapsuleCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size - new Vector3(0.1f, 0f, 0f), CapsuleDirection2D.Vertical, 0f, Vector2.down, extraHeightText, platformLayerMask);
+        RaycastHit2D raycastHit = Physics2D.CapsuleCast(capsuleCollider2D.bounds.center, capsuleCollider2D.bounds.size + new Vector3(0.1f, 0f, 0f), CapsuleDirection2D.Vertical, 0f, Vector2.down, extraHeightText, platformLayerMask);
         
         Color rayColor;
         if (raycastHit.collider != null)

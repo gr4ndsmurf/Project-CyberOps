@@ -17,6 +17,8 @@ public class Health : MonoBehaviour
 
     public int MaxHealth => _maxHealth;
 
+    [SerializeField] bool player;
+
     int _currentHealth;
     public int CurrentHealth
     {
@@ -65,5 +67,9 @@ public class Health : MonoBehaviour
     {
         yield return new WaitForSeconds(waitSeconds);
         gameObject.SetActive(false);
+        if (player)
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
