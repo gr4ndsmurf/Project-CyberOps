@@ -1325,6 +1325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2497788706444143362, guid: 0a1436cf76bbf1e429403f19d5a2a3b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4014959193458582039, guid: 0a1436cf76bbf1e429403f19d5a2a3b3, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -14423,6 +14427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 3726822386457085209, guid: c46997bf7ffc1bb4d9ae2f10e11ff672, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8995680061121764809, guid: c46997bf7ffc1bb4d9ae2f10e11ff672, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.92
@@ -15157,6 +15165,10 @@ PrefabInstance:
     - target: {fileID: 1921560571429197212, guid: d0393dc49ea9f8e4f87efad7e561e089, type: 3}
       propertyPath: m_Name
       value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222164549220930385, guid: d0393dc49ea9f8e4f87efad7e561e089, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4005950089661615628, guid: d0393dc49ea9f8e4f87efad7e561e089, type: 3}
       propertyPath: m_LocalPosition.x
